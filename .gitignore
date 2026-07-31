@@ -1,25 +1,78 @@
+# ── Environment & secrets ──────────────────────────────────────────────
 .env
+*.env
+!.env.example
+
+# ── Python ─────────────────────────────────────────────────────────────
 __pycache__/
 *.py[cod]
-*.log
-.pytest_cache/
-.mypy_cache/
-.ruff_cache/
-.streamlit/
-.coverage
-htmlcov/
+*$py.class
+*.pyo
+*.pyd
+.Python
+build/
 dist/
 *.egg-info/
+.eggs/
+.installed.cfg
+MANIFEST
+
+# ── Virtual environments ────────────────────────────────────────────────
+.venv/
+venv/
+env/
+ENV/
+
+# ── Testing & coverage ──────────────────────────────────────────────────
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+nosetests.xml
+coverage.xml
+*.cover
+
+# ── Type checking & linting ─────────────────────────────────────────────
+.mypy_cache/
+.ruff_cache/
+.dmypy.json
+dmypy.json
+
+# ── Database temp files ─────────────────────────────────────────────────
+# The main DB (data/tennis_analytics.db) is tracked for deployment
+data/*.db-wal
+data/*.db-journal
+data/*.db-shm
+
+# ── Raw API snapshots & processed CSVs (large, reproducible) ───────────
+data/raw/
+data/processed/
+
+# ── Logs ────────────────────────────────────────────────────────────────
+*.log
+logs/
+reports/
+
+# ── Streamlit ───────────────────────────────────────────────────────────
+.streamlit/secrets.toml
+
+# ── Docker ──────────────────────────────────────────────────────────────
+# (Dockerfile and docker-compose are tracked)
+
+# ── OS ──────────────────────────────────────────────────────────────────
 .DS_Store
 Thumbs.db
-reports/
-streamlit_server*.log
+desktop.ini
+
+# ── IDE ─────────────────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ── Large generated files (regenerated via scripts) ─────────────────────
 Tennis_Analytics_Presentation.pptx
 Tennis_Analytics_Project_Report.docx
-data/processed/
-!data/processed/.gitkeep
-data/raw/
-!data/raw/.gitkeep
-data/*.db
-*.db-journal
-*.db-wal
+generate_ppt.py
+generate_report.py
